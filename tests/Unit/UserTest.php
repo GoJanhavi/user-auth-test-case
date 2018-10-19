@@ -30,4 +30,10 @@ class UserTest extends TestCase
         $user = self::fetchRandomUser();
         $this->assertInstanceOf('App\User', $user);
     }
+
+    public function testHasKey(){
+
+        $user = self::fetchRandomUser();
+        $this->assertArrayHasKey('email', $user);
+    }
 }
