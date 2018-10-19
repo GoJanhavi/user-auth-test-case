@@ -36,4 +36,11 @@ class UserTest extends TestCase
         $user = self::fetchRandomUser();
         $this->assertArrayHasKey('email', $user);
     }
+
+    public function testLoginAuthenticationRedirection()
+    {
+        $user = self::fetchRandomUser();
+        $response = $this->actingAs($user)->get('/login');
+        $response->assertRedirect('/home');
+    }
 }
