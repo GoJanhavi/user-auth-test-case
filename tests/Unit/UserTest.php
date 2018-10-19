@@ -14,9 +14,14 @@ class UserTest extends TestCase
      *
      * @return void
      */
-    public function testExample()
-    {
+    public function fetchRandomUser(){
         $user = User::inRandomOrder()->first();
-        $this->assertInternalType('int',$user->id);
+        return $user;
+    }
+
+    public function testDatatype()
+    {
+        $user = self::fetchRandomUser();
+        $this->assertInternalType('string',$user->name);
     }
 }
