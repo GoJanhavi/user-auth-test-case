@@ -24,4 +24,10 @@ class UserTest extends TestCase
         $user = self::fetchRandomUser();
         $this->assertInternalType('string',$user->name);
     }
+
+    public function testInstance()
+    {
+        $user = self::fetchRandomUser();
+        $this->assertInstanceOf('App\User', $user);
+    }
 }
